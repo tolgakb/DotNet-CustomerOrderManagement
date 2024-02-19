@@ -3,6 +3,7 @@ using CustomerOrderManagement.Application.Common.Dto;
 using CustomerOrderManagement.Application.Common.Interfaces;
 using CustomerOrderManagement.Domain.Exceptions;
 using MediatR;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +16,13 @@ namespace CustomerOrderManagement.Application.Features.CustomerManagement.Querie
     {
         private readonly ICustomerRepository _customerRepository;
         private readonly IMapper _mapper;
+        private readonly ILogger<GetCustomerByIdQueryHandler> _logger;
 
-        public GetCustomerByIdQueryHandler(ICustomerRepository customerRepository, IMapper mapper)
+        public GetCustomerByIdQueryHandler(ICustomerRepository customerRepository, IMapper mapper, ILogger<GetCustomerByIdQueryHandler> logger)
         {
             _customerRepository = customerRepository;
             _mapper = mapper;
+            _logger = logger;
         }
         public async Task<CustomerViewDto> Handle(GetCustomerByIdQuery request, CancellationToken cancellationToken)
         {
@@ -27,6 +30,7 @@ namespace CustomerOrderManagement.Application.Features.CustomerManagement.Querie
 
             if (customer == null) 
             {
+                _logger.LogError("Customer with id : {id} could not found", request.Id);
                 throw new CustomerNotFoundException(request.Id);
             }
 

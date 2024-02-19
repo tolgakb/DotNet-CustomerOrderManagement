@@ -4,6 +4,9 @@ using CustomerOrderManagement.Persistence;
 using CustomerOrderManagement.Application.Common.Interfaces;
 using CustomerOrderManagement.Persistence.Repositories;
 using Serilog;
+using CustomerOrderManagement.Application.Features.CustomerManagement.Commands.CreateCustomer;
+using FluentValidation;
+using CustomerOrderManagement.Application.Features.CustomerManagement.Commands.UpdateCustomer;
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo
@@ -32,6 +35,8 @@ builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();
 builder.Services.AddTransient<IOrderRepository, OrderRepository>();
+builder.Services.AddTransient<IValidator<CreateCustomerCommand>, CreateCustomerCommandValidator>();
+builder.Services.AddTransient<IValidator<UpdateCustomerCommand>, UpdateCustomerCommandValidator>();
 
 
 var app = builder.Build();

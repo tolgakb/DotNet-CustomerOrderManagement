@@ -9,7 +9,7 @@ namespace CustomerOrderManagement.Domain.Exceptions
     public class CustomerNotFoundException : NotFoundException
     {
         public CustomerNotFoundException(Guid id)
-            : base($"The product with id : {id} could not found.")
+            : base($"The customer with id : {id} could not found.")
         {
         }
     }
