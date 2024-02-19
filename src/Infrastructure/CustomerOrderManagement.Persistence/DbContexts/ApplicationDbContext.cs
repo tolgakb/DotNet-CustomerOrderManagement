@@ -12,16 +12,13 @@ namespace CustomerOrderManagement.Persistence.DbContexts
 {
     public class ApplicationDbContext : IdentityDbContext<User>, IApplicationDbContext
     {
-        public ApplicationDbContext()
-        {
-
-        }
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
         }
 
         public DbSet<User> Users { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

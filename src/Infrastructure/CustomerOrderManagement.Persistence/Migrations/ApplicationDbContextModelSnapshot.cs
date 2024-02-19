@@ -101,7 +101,7 @@ namespace CustomerOrderManagement.Persistence.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("Order");
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("CustomerOrderManagement.Domain.Entities.User", b =>

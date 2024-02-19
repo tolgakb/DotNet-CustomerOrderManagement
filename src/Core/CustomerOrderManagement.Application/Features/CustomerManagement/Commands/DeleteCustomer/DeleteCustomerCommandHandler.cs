@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CustomerOrderManagement.Application.Common.Dto;
 using CustomerOrderManagement.Application.Common.Interfaces;
+using CustomerOrderManagement.Domain.Exceptions;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,11 @@ namespace CustomerOrderManagement.Application.Features.CustomerManagement.Comman
         public async Task<CustomerViewDto> Handle(DeleteCustomerCommand request, CancellationToken cancellationToken)
         {
             var customer = await _customerRepository.GetByIdAsync(request.Id);
+
+            if (customer == null) 
+            {
+                throw new CustomerNotFoundException(request.Id);
+            }
 
             await _customerRepository.DeleteAsync(customer);
             await _unitOfWork.SaveChangesAsync();

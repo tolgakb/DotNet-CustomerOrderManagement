@@ -25,6 +25,9 @@ namespace CustomerOrderManagement.Application.Common.Dto
 
         public String? Country { get; set; }
 
+        public DateTime UpdatedDate { get; set; }
+
+
         //public ICollection<Order> Orders { get; set; }
 
         //public Guid UserId { get; set; }

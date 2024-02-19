@@ -12,7 +12,7 @@ namespace CustomerOrderManagement.Persistence.Repositories
 {
     public class GenericRepository<T> : IGenericRepositoryAsync<T> where T : BaseEntity
     {
-        private readonly ApplicationDbContext _context;
+        protected readonly ApplicationDbContext _context;
 
         public GenericRepository(ApplicationDbContext context)
         {

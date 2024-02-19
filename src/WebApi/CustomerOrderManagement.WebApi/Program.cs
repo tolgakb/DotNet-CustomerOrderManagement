@@ -3,8 +3,20 @@ using CustomerOrderManagement.Application;
 using CustomerOrderManagement.Persistence;
 using CustomerOrderManagement.Application.Common.Interfaces;
 using CustomerOrderManagement.Persistence.Repositories;
+using Serilog;
+
+Log.Logger = new LoggerConfiguration()
+    .WriteTo
+    .Console()
+    .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day) // add this
+    .CreateLogger();
+
+Log.Information("Starting web application");
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseSerilog(); // <-- Add this line
+
 
 // Add services to the container.
 
@@ -19,6 +31,8 @@ builder.Services.AddInfrastructureServices(builder.Configuration);
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();
+builder.Services.AddTransient<IOrderRepository, OrderRepository>();
+
 
 var app = builder.Build();
 

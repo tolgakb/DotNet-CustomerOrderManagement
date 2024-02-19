@@ -23,9 +23,15 @@ namespace CustomerOrderManagement.Domain.Entities
 
         public String? Country { get; set; }
 
-        public ICollection<Order> Orders { get; set; }
+        public ICollection<Order> Orders { get; set; } = new List<Order>();
 
-        public Guid UserId { get; set; }
+        //public Guid UserId { get; set; }
+
+        public Guid UserId
+        {
+            get { return Id; }
+            init { }
+        }
         public User User { get; set; }
     }
 }

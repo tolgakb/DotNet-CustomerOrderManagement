@@ -3,6 +3,7 @@ using CustomerOrderManagement.Application.Common.Dto;
 using CustomerOrderManagement.Application.Features.CustomerManagement.Commands.CreateCustomer;
 using CustomerOrderManagement.Application.Features.CustomerManagement.Commands.DeleteCustomer;
 using CustomerOrderManagement.Application.Features.CustomerManagement.Commands.UpdateCustomer;
+using CustomerOrderManagement.Application.Features.OrderManagement.Commands.CreateOrder;
 using CustomerOrderManagement.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,9 @@ namespace CustomerOrderManagement.Application.Common.Mappings
             CreateMap<Customer, CreateCustomerCommand>().ReverseMap();
             CreateMap<Customer, DeleteCustomerCommand>().ReverseMap();
             CreateMap<Customer, UpdateCustomerCommand>().ReverseMap();
+
+            CreateMap<Order,  OrderViewDto>().ReverseMap();
+            CreateMap<Order, CreateOrderCommand>().ReverseMap();
 
         }
     }

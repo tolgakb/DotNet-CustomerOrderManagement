@@ -1,0 +1,28 @@
+2024-02-19 13:52:44.426 +00:00 [INF] Starting web application
+2024-02-19 13:52:45.385 +00:00 [INF] User profile is available. Using 'C:\Users\Tolga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-19 13:52:45.649 +00:00 [INF] Now listening on: https://localhost:7154
+2024-02-19 13:52:45.650 +00:00 [INF] Now listening on: http://localhost:5250
+2024-02-19 13:52:45.652 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-19 13:52:45.654 +00:00 [INF] Hosting environment: Development
+2024-02-19 13:52:45.655 +00:00 [INF] Content root path: C:\Users\Tolga\OneDrive\Desktop\DotnetWebAPI\DotNet-CustomerOrderManagement\src\WebApi\CustomerOrderManagement.WebApi
+2024-02-19 13:52:49.056 +00:00 [INF] Request starting HTTP/2 GET https://localhost:7154/swagger/index.html - null null
+2024-02-19 13:52:49.274 +00:00 [INF] Request finished HTTP/2 GET https://localhost:7154/swagger/index.html - 200 null text/html;charset=utf-8 217.4894ms
+2024-02-19 13:52:49.324 +00:00 [INF] Request starting HTTP/2 GET https://localhost:7154/_vs/browserLink - null null
+2024-02-19 13:52:49.324 +00:00 [INF] Request starting HTTP/2 GET https://localhost:7154/_framework/aspnetcore-browser-refresh.js - null null
+2024-02-19 13:52:49.350 +00:00 [INF] Request finished HTTP/2 GET https://localhost:7154/_framework/aspnetcore-browser-refresh.js - 200 13796 application/javascript; charset=utf-8 26.3701ms
+2024-02-19 13:52:49.384 +00:00 [INF] Request finished HTTP/2 GET https://localhost:7154/_vs/browserLink - 200 null text/javascript; charset=UTF-8 59.6867ms
+2024-02-19 13:52:49.466 +00:00 [INF] Request starting HTTP/2 GET https://localhost:7154/swagger/v1/swagger.json - null null
+2024-02-19 13:52:50.003 +00:00 [INF] Request finished HTTP/2 GET https://localhost:7154/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 537.4645ms
+2024-02-19 13:52:59.075 +00:00 [INF] Request starting HTTP/2 GET https://localhost:7154/api/Customer - null null
+2024-02-19 13:52:59.122 +00:00 [INF] Executing endpoint 'CustomerOrderManagement.WebApi.Controllers.CustomerController.Get (CustomerOrderManagement.WebApi)'
+2024-02-19 13:52:59.173 +00:00 [INF] Route matched with {action = "Get", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller CustomerOrderManagement.WebApi.Controllers.CustomerController (CustomerOrderManagement.WebApi).
+2024-02-19 13:52:59.185 +00:00 [INF] All customers have been received successfully.
+2024-02-19 13:53:00.248 +00:00 [WRN] The foreign key property 'Customer.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2024-02-19 13:53:00.285 +00:00 [WRN] No store type was specified for the decimal property 'TotalAmount' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-02-19 13:53:01.275 +00:00 [INF] Executed DbCommand (46ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Address], [c].[City], [c].[Country], [c].[CreatedDate], [c].[Email], [c].[FirstName], [c].[LastName], [c].[Phone], [c].[UpdatedDate], [c].[UserId], [c].[UserId1]
+FROM [Customers] AS [c]
+2024-02-19 13:53:01.430 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CustomerOrderManagement.Application.Common.Dto.CustomerViewDto, CustomerOrderManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-19 13:53:01.476 +00:00 [INF] Executed action CustomerOrderManagement.WebApi.Controllers.CustomerController.Get (CustomerOrderManagement.WebApi) in 2288.3458ms
+2024-02-19 13:53:01.484 +00:00 [INF] Executed endpoint 'CustomerOrderManagement.WebApi.Controllers.CustomerController.Get (CustomerOrderManagement.WebApi)'
+2024-02-19 13:53:01.499 +00:00 [INF] Request finished HTTP/2 GET https://localhost:7154/api/Customer - 200 null application/json; charset=utf-8 2423.5967ms
